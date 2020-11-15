@@ -13,3 +13,154 @@
   suggestion: "Change the k-point layout, for instance make sure that if two lattice sides are of equal length, the k-point sampling along the same sides are the same. If that does not work, try to change the sampling rate and shift the grid out of Gamma, or in to Gamma."
   location: STDOUT
   recover: False
+brmix:
+  kind: ERROR
+  location: STDOUT
+  message: Error in BRMIX
+  recover: false
+  regex: 'BRMIX: very serious problems'
+  suggestion: Check ISTART and ICHARG settings. Can be parallelism related as well,
+    try reduce KPAR may help.
+cnormn:
+  kind: ERROR
+  location: STDOUT
+  message: Error in CNORMN
+  recover: false
+  regex: 'WARNING: CNORMN'
+  suggestion: Check POTCAR for atoms too close/on top of each other
+denmp:
+  kind: ERROR
+  location: STDOUT
+  message: Error in DENMP
+  recover: false
+  regex: 'WARNING: DENMP: can''t reach specified precision'
+  suggestion: ????
+dentet:
+  kind: ERROR
+  location: STDOUT
+  message: Error with DENTET
+  recover: false
+  regex: 'WARNING: DENTET'
+  suggestion: Increase the kpoints slightly or set ISMEAR = -5.
+edddav_zhegv:
+  kind: ERROR
+  location: STDOUT
+  message: Error in ZHEGV from EDDAV
+  recover: false
+  regex: 'Error EDDDAV: Call to ZHEGV failed'
+  suggestion: Try a different ALGO
+eddrmm_zhegv:
+  kind: ERROR
+  location: STDOUT
+  message: Error in EDDRMM
+  recover: false
+  regex: 'WARNING in EDDRMM: call to ZHEGV failed'
+  suggestion: Use an algorithm that is not RMM-DIIS.
+edwav:
+  kind: ERROR
+  location: STDOUT
+  message: Error in EDWAV
+  recover: false
+  regex: 'EDWAV: internal error'
+  suggestion: Unkonwn. Potentially compilers related, try reduce NCORE.
+fexcp:
+  kind: ERROR
+  location: STDOUT
+  message: Error in FEXCP
+  recover: false
+  regex: 'ERROR FEXCP: supplied Exchange'
+  suggestion: Change ALGO or PREC might work
+fock_acc:
+  kind: ERROR
+  location: STDERR
+  message: Error in FOCK_ACC
+  recover: false
+  regex: internal error in FOCK_ACC
+  suggestion: Change or remove NKRED
+invgrp:
+  kind: ERROR
+  location: STDOUT
+  message: Error in INVGRP
+  recover: false
+  regex: internal error in subroutine INVGRP
+  suggestion: Reduce symmetric precision, e.g. symprec = 1d-6.
+kpoints_trans:
+  kind: ERROR
+  location: STDERR
+  message: Error in GENERATE_KPOINTS_TRANS
+  recover: false
+  regex: internal error in GENERATE_KPOINTS_TRANS
+  suggestion: Increase k-point grid
+non_collinear:
+  kind: ERROR
+  location: STDOUT
+  message: Using a collinear spin executable for a non-colinear calculation
+  recover: false
+  regex: 'ERROR: non collinear calculations require'
+  suggestion: Use the code points to vasp_ncl executable
+not_hermitian:
+  kind: ERROR
+  location: STDOUT
+  message: Sub-space matrix not Hermitian in DAV
+  recover: false
+  regex: not Hermitian in DAV
+  suggestion: Tends to be problem with parallelism, try different combinations may
+    help.
+psmaxn:
+  kind: ERROR
+  location: STDOUT
+  message: Error in PSMAXN
+  recover: false
+  regex: PSMAXN for non-local potential too small
+  suggestion: Try change the order of psedopotentials so soft elements go first. May
+    also try reduce ENCUT.
+pssyevx:
+  kind: ERROR
+  location: STDOUT
+  message: Error in PSSYEVX
+  recover: false
+  regex: Error in subspace rotation PSSYEVX
+  suggestion: Too much band parallelism?
+pzstein:
+  kind: ERROR
+  location: STDOUT
+  message: Error in PZSETIN
+  recover: false
+  regex: PZSTEIN parameter number had an illegal value
+  suggestion: Too much band parallelism?
+real_optlay:
+  kind: ERROR
+  location: STDOUT
+  message: Error in REAL_OPTLAY
+  recover: false
+  regex: 'REAL_OPTLAY: internal error'
+  suggestion: Set LREAL to False.
+rhosyg:
+  kind: ERROR
+  location: STDOUT
+  message: Error in RHOSYG
+  recover: false
+  regex: 'RHOSYG: internal error'
+  suggestion: Set ISYM to 0
+rspher:
+  kind: ERROR
+  location: STDOUT
+  message: Error in RSPHER
+  recover: false
+  regex: Internal ERROR RSPHER
+  suggestion: Seems to be related to parallelism. Reduce NCORE.
+set_indpw_full:
+  kind: ERROR
+  location: STDOUT
+  message: 'Error in INDPW: insufficient memory'
+  recover: false
+  regex: 'internal error in SET_INDPW_FULL: insufficient'
+  suggestion: Reduce NCORE, use NKRED tag for HF FFT grid and ensure k-mesh is even
+    in all reciprocal directions.
+sgrcon:
+  kind: ERROR
+  location: STDOUT
+  message: Error in SGRCON
+  recover: false
+  regex: internal error in subroutine SGRCON
+  suggestion: Reduce symmetric precision, e.g. symprec = 1d-6.
