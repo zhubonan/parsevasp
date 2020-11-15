@@ -34,7 +34,7 @@ denmp:
   message: Error in DENMP
   recover: false
   regex: 'WARNING: DENMP: can''t reach specified precision'
-  suggestion: ????
+  suggestion: "????"
 dentet:
   kind: ERROR
   location: STDOUT
