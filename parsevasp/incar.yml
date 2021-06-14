@@ -3585,7 +3585,7 @@ falpha:
   description: Parameter that controls velocity damping
   values: null
   type: float
-ftimeinc:
+fnmin:
   default: 5
   description: Minimum number of iterations before adjusting alpha and dt
   values: null
